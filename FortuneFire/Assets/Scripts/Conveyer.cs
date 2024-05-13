@@ -14,12 +14,12 @@ public class Conveyer : MonoBehaviour
         if (other.TryGetComponent<IGrabable>(out IGrabable component))
         {
             Rigidbody rb = other.GetComponent<Rigidbody>();
+            rb.freezeRotation = true;
 
-            Quaternion rotation = Quaternion.Euler(0f, 90f, 0f);
-            Vector3 rotatedDir = rotation * transform.forward; //Rotated direction
+            //Quaternion rotation = Quaternion.Euler(0f, 90f, 0f);
+            //Vector3 rotatedDir = rotation * transform.forward; //Rotated direction
 
-            rb.AddForce(rotatedDir * forceAmount, ForceMode.Impulse);
-            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+            rb.velocity = -transform.forward * forceAmount;
         }
         
     }

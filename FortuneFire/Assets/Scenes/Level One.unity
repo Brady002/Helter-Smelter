@@ -852,7 +852,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e8e4bf4d2abba4143a304d9a65c94b15, type: 2}
   m_CullingMode: 0
@@ -1228,7 +1228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &442330175
 Transform:
   m_ObjectHideFlags: 0
@@ -8537,10 +8537,10 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 330585546}
   - {fileID: 2051070440}
   - {fileID: 1989455714}
   - {fileID: 1935763213}
-  - {fileID: 330585546}
   - {fileID: 769112989}
   - {fileID: 2138585006}
   - {fileID: 429503034}
