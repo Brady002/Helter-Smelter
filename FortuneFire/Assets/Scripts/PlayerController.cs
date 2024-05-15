@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         canMove = false;
         canUse = true;
         rb.freezeRotation = true;
-        StartCoroutine(BeginMatch(freezeTime));
+        Invoke(nameof(UnFreeze), freezeTime); //19.5 seconds for correct interval
     }
 
     // Update is called once per frame
@@ -255,9 +255,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private IEnumerator BeginMatch(float frozen)
+    public void Freeze()
     {
-        yield return new WaitForSeconds(frozen);
+        canMove = false;
+    }
+
+    public void UnFreeze()
+    {
         canMove = true;
     }
 }
