@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move(); //Player Movement and Rotation
+        
 
         if (rb.velocity.magnitude > maxSpeed) //Limits the max speed the player can move
         {
@@ -65,6 +65,11 @@ public class PlayerController : MonoBehaviour
         }
 
         
+    }
+
+    private void FixedUpdate()
+    {
+        Move(); //Player Movement and Rotation
     }
 
     public void OnMove(InputAction.CallbackContext context)

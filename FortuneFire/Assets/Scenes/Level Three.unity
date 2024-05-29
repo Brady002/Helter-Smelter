@@ -2644,8 +2644,13 @@ PrefabInstance:
       objectReference: {fileID: 725608914}
     - target: {fileID: 2919492482994400751, guid: dcc6c22b8004eb34698e516ac98275a6,
         type: 3}
+      propertyPath: speed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919492482994400751, guid: dcc6c22b8004eb34698e516ac98275a6,
+        type: 3}
       propertyPath: freezeTime
-      value: 19.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2919492482994400751, guid: dcc6c22b8004eb34698e516ac98275a6,
         type: 3}
@@ -5411,7 +5416,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a3eb058385e647744b78f34c258bd10e, type: 2}
+  - {fileID: 2100000, guid: 996e23ebfb353894a867a07b2d7aca4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11252,7 +11257,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a3eb058385e647744b78f34c258bd10e, type: 2}
+  - {fileID: 2100000, guid: 996e23ebfb353894a867a07b2d7aca4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
