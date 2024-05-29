@@ -159,8 +159,8 @@ MonoBehaviour:
   rb: {fileID: 1695831735554939370}
   inventory: {fileID: 0}
   freezeTime: 0
-  speed: 10
-  maxSpeed: 5
+  speed: 15
+  maxSpeed: 4
   attach: {fileID: 1180011206272792462}
   isInvulnerable: 0
   orientation: {fileID: 3477898000166647201}

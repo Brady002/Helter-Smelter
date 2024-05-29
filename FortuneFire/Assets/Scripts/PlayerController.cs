@@ -108,7 +108,8 @@ public class PlayerController : MonoBehaviour
             verticalInput = Input.GetAxisRaw("Vertical");
 
             moveDirection = new Vector3(movementInput.x, 0f, movementInput.y);
-            rb.velocity += moveDirection * speed * 0.1f;
+            //rb.velocity += moveDirection * speed * 0.1f; Old System
+            rb.AddForce(moveDirection * speed, ForceMode.Force);
 
             if (movementInput.y > 0 && Mathf.Abs(movementInput.y) > Mathf.Abs(movementInput.x)) //Player orientation
             {
