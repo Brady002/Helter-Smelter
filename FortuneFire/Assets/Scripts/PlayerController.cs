@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     public GameObject inventory;
     public float freezeTime;
 
+    [Header("Physics")]
+    private float groundDrag = 5f;
+    private float airDrag = 0f;
+    private bool grounded = false;
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -24,7 +28,9 @@ public class PlayerController : MonoBehaviour
     public bool isInvulnerable = false;
     private float invulnerabilityTime = 2f;
     private bool canMove = true;
-    private float stunTime = 1f;
+
+    [Header("Team")]
+    [SerializeField] public int team = 1;
 
     private float horizontalInput;
     private float verticalInput;
@@ -51,7 +57,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!Physics.Raycast(transform.position, Vector3.down, 2f * 0.5f + 0.2f))
+        { //Checks to see if player is on ground
+            rb.drag = airDrag;
+        }
+        else
+        {
+            rb.drag = groundDrag;
+        }
 
         if (rb.velocity.magnitude > maxSpeed) //Limits the max speed the player can move
         {
@@ -222,7 +235,7 @@ public class PlayerController : MonoBehaviour
                 }
                 
                 
-                pc.TakeDamage(orientation.right);
+                pc.TakeDamage(orientation.right, 2f);
             }
         }
 
@@ -235,11 +248,11 @@ public class PlayerController : MonoBehaviour
                 Rigidbody rb = inventory.GetComponent<Rigidbody>();
                 rb.constraints = RigidbodyConstraints.None;
             } catch {}
-            TakeDamage(orientation.right);
+            TakeDamage(orientation.right, 1f);
         }
     }
 
-    public void TakeDamage(Vector3 hitDirection)
+    public void TakeDamage(Vector3 hitDirection, float _stunTime = 2f)
     {
         currentlyHolding = false;
         if(inventory != null) {
@@ -247,14 +260,14 @@ public class PlayerController : MonoBehaviour
         }
         inventory = null;
         rb.AddForce(hitDirection * 50, ForceMode.Impulse);
-        StartCoroutine(InvulnerabilityFrames());
+        StartCoroutine(Stun(_stunTime));
     }
 
-    private IEnumerator InvulnerabilityFrames()
+    private IEnumerator Stun(float stunDuration)
     {
         canMove = false;
         isInvulnerable = true;
-        yield return new WaitForSeconds(stunTime);
+        yield return new WaitForSeconds(stunDuration);
         canMove = true;
         yield return new WaitForSeconds(invulnerabilityTime);
         isInvulnerable = false;
